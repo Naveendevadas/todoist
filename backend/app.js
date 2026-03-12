@@ -7,7 +7,6 @@ const mongoConnect = require('./db/config');
 const userRoutes = require('./routes/userRoutes');
 const todoRoutes = require('./routes/todoRoutes');
 
-
 dotenv.config();
 
 const app = express();

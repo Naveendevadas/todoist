@@ -24,7 +24,6 @@ export default function TodoList() {
   const [editId, setEditId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
 
-  // Fetch todos with optional filter
   const fetchTodos = async (status = "all") => {
     try {
       const res = await fetch(`${API}?status=${status}`, {
@@ -99,6 +98,12 @@ export default function TodoList() {
     setDueDate(todo.dueDate?.substring(0, 10));
     setEditId(todo._id);
     setShowForm(true);
+
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+    
   };
 
   const logout = async () => {
@@ -165,7 +170,7 @@ export default function TodoList() {
       <div className="flex-1 p-4 md:p-6 bg-gray-900 min-h-screen text-white md:ml-64">
         <h1 className="text-xl md:text-2xl font-bold mb-4">Create your ToDo</h1>
         <button
-          onClick={() => { setEditId(null); setTitle(""); setDescription(""); setStartDate(""); setDueDate(""); setShowForm(true); }}
+          onClick={() => { setEditId(null); setTitle(""); setDescription(""); setStartDate(""); setDueDate(""); setShowForm(true);  window.scrollTo({top: 0,behavior: "smooth"}); }}
           className="mb-4 border rounded-full px-4 py-2 hover:bg-white hover:text-black"
         >
           + Add Todo

@@ -63,7 +63,6 @@ exports.getAllTodos = async (req, res) => {
     }
 };
 
-// Get Single Todo
 exports.getSingleTodo = async (req, res) => {
     try {
         const todo = await Todo.findOne({ _id: req.params.id, user: req.user.id });
@@ -83,7 +82,6 @@ exports.getSingleTodo = async (req, res) => {
     }
 };
 
-// Edit Todo
 exports.editTodo = async (req, res) => {
     try {
         const todo = await Todo.findOneAndUpdate(
@@ -107,7 +105,6 @@ exports.editTodo = async (req, res) => {
     }
 };
 
-// Delete Todo
 exports.deleteTodo = async (req, res) => {
     try {
         const todo = await Todo.findOneAndDelete({ _id: req.params.id, user: req.user.id });
@@ -124,7 +121,6 @@ exports.deleteTodo = async (req, res) => {
     }
 };
 
-// Mark Todo as Complete (manual)
 exports.completeTodo = async (req, res) => {
     try {
         const todo = await Todo.findOne({ _id: req.params.id, user: req.user.id });
