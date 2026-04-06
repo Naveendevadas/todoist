@@ -2,7 +2,7 @@ const Todo = require('../models/todo');
 
 const updateStatus = (todo) => {
     const now = new Date();
-
+    
     if (todo.status === "complete") return todo; 
     if (now < todo.startDate) {
         todo.status = "pending";

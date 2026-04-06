@@ -12,8 +12,6 @@ interface Todo {
 }
 
 export default function TodoList() {
-  const router = useRouter();
-  const API = "http://localhost:5000/api/todos";
 
   const [filter, setFilter] = useState("all");
   const [title, setTitle] = useState("");
@@ -23,6 +21,9 @@ export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editId, setEditId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
+
+  const router = useRouter();
+  const API = "http://localhost:5000/api/todos";
 
   const fetchTodos = async (status = "all") => {
     try {
@@ -102,8 +103,7 @@ export default function TodoList() {
     window.scrollTo({
     top: 0,
     behavior: "smooth"
-  });
-    
+    });  
   };
 
   const logout = async () => {

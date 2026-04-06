@@ -28,7 +28,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
     try {
       const res = await fetch(url, {
         method: "POST",
-        credentials: "include",   // ⭐ VERY IMPORTANT
+        credentials: "include",  
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -38,8 +38,8 @@ export default function LoginModal({ onClose }: LoginModalProps) {
       if (res.ok) {
         alert(isSignup ? "Account Created!" : "Login Successful!");
 
-        onClose();                // close modal
-        router.push("/todolist"); // ⭐ redirect to todo page
+        onClose();               
+        router.push("/todolist"); 
       } else {
         alert(data.message || "Something went wrong");
       }
